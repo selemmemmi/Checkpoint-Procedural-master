@@ -1,0 +1,76 @@
+
+// procedure
+PROCEDURE dot_product(v1,v2:INTEGER,var ps:INTEGER)
+    VAR
+        i,n:INTEGER
+        
+    BEGIN
+        IF (v1.length >= v2.length) THEN
+            n:=v2.length
+        ELSE
+            n:=v1.length
+        END_IF
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            ps+=v1[i]*v2[i]
+        END_FOR
+        IF (ps=0) THEN
+            write("two vectors are orthogonal")
+        ELSE
+            write("two vectors are not orthogonal")
+        END_IF
+    END
+
+// -------------------------------------------------------------------
+// body_1
+ALGORITHM Algo_3
+VAR
+    set : ARRAY_OF INTEGER[n1][2];
+    ps,i,j:INTEGER
+    
+BEGIN
+
+
+    FOR i FROM 0 TO set.length STEP 1 DO
+        FOR j FROM 1 TO set.length STEP 1 DO
+            dot_product(set[i],set[j],ps)
+        END_FOR
+    END_FOR
+END
+// ----------------------------------------------------------------------
+// function
+FUNCTION dot_product(v1,v2) : INTEGER
+VAR
+    i,n,ps:INTEGER
+BEGIN
+    IF (v1.length >= v2.length) THEN
+            n:=v2.length
+        ELSE
+            n:=v1.length
+        END_IF
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            ps+=v1[k]*v2[k]
+        END_FOR
+    RETURN ps ;
+END
+
+// -------------------------------------------------------------------
+// body_2
+ALGORITHM Algo_3
+VAR
+    set : ARRAY_OF INTEGER[n1][2];
+    ps,i,j:INTEGER
+    
+BEGIN
+
+
+    FOR i FROM 0 TO set.length STEP 1 DO
+        FOR j FROM 1 TO set.length STEP 1 DO
+            ps:=dot_product(set[i],set[j])
+            IF (ps=0) THEN
+                write("two vectors are orthogonal")
+            ELSE
+                write("two vectors are not orthogonal")
+        END_IF
+        END_FOR
+    END_FOR
+END
